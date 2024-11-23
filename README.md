@@ -40,6 +40,7 @@
 - **Player**
   - Autoplay
   - Autoskip intro/outro
+  - Autonext
 
 </details>
 

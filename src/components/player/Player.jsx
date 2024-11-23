@@ -228,8 +228,8 @@ export default function Player({
       airplay: true,
       autoOrientation: true,
       fastForward: true,
-      aspectRatio:true,
-      subtitleOffset:true,
+      aspectRatio: true,
+      subtitleOffset: true,
       plugins: [
         artplayerPluginHlsControl({
           quality: {
@@ -391,10 +391,10 @@ export default function Player({
       });
       const ranges = [
         ...(intro.start != null && intro.end != null
-          ? [[intro.start, intro.end]]
+          ? [[intro.start + 1, intro.end - 1]]
           : []),
         ...(outro.start != null && outro.end != null
-          ? [[outro.start, outro.end]]
+          ? [[outro.start + 1, outro.end]]
           : []),
       ];
       document.addEventListener("keydown", (event) =>
