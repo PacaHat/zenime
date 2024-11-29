@@ -26,7 +26,11 @@ function InfoItem({ label, value, isProducer = true }) {
             value.map((item, index) =>
               isProducer ? (
                 <Link
-                  to={`/producer/${item.split(" ").join("-")}`}
+                  to={`/producer/${item
+                    .replace(/[&'"^%$#@!()+=<>:;,.?/\\|{}[\]`~*_]/g, "")
+                    .split(" ")
+                    .join("-")
+                    .replace(/-+/g, "-")}`}
                   key={index}
                   className="cursor-pointer hover:text-[#ffbade]"
                 >
@@ -41,7 +45,11 @@ function InfoItem({ label, value, isProducer = true }) {
             )
           ) : isProducer ? (
             <Link
-              to={`/producer/${value.split(" ").join("-")}`}
+              to={`/producer/${value
+                .replace(/[&'"^%$#@!()+=<>:;,.?/\\|{}[\]`~*_]/g, "")
+                .split(" ")
+                .join("-")
+                .replace(/-+/g, "-")}`}
               className="cursor-pointer hover:text-[#ffbade]"
             >
               {value}
