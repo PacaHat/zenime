@@ -1,19 +1,12 @@
 import axios from "axios";
 
-const getQtip = async (id) => {
-  const total_workers = parseInt(import.meta.env.VITE_TOTAL_WORKER_URL, 10);
-  const worker_url = import.meta.env.VITE_WORKER_URL.split(",");
+export default async function getQtip(id) {
   try {
-    const response = await axios.get(
-      `${worker_url[Math.floor(Math.random() * total_workers)]}/qtip/${id
-        .split("-")
-        .pop()}`
-    );
+    const api_url = import.meta.env.VITE_API_URL;
+    const response = await axios.get(`${api_url}/qtip/${id.split("-").pop()}`);
     return response.data.results;
-  } catch (err) {
-    console.error("Error fetching genre info:", err);
-    return err;
+  } catch (error) {
+    console.error("Error fetching qtip info:", error);
+    return error;
   }
-};
-
-export default getQtip;
+}
